@@ -42,12 +42,11 @@ In this Lab you will explore : -
   2. Create a Blob Storage  
      a. Login to your Azure account. If you don't have an Azure account, subscribe to the free account using the link [here](https://azure.microsoft.com/en-in/free/).  
      b. Create a blob storage account. You can follow the steps provided in [Microsoft Link](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).   
-     c. Create 1 container called **"documents"**. Select **Public access level** as **“Container (anonymous read access for containers and blobs)”**.
-     
-<img width="302" alt="Picture 3" src="https://user-images.githubusercontent.com/104025201/236998644-eec061b9-4af4-4e58-bfbd-e26d438bb582.png">.   
-     d. Note the **Storage account name** and also Save one of the **Access keys** from the **“Access keys”** option in the storage account menu on the left side.  
+     c. Create 1 container called **"documents"**. Select **Public access level** as **“Container (anonymous read access for containers and blobs)”**.  
+     <img width="302" alt="Picture 3" src="https://user-images.githubusercontent.com/104025201/237000734-50341393-ccf4-406e-8233-953acd2636fe.png">
 
-![Picture 4](https://user-images.githubusercontent.com/104025201/237000028-25274bc0-339c-4ff8-8276-770a77eb50fa.png)
+     d. Note the **Storage account name** and also Save one of the **Access keys** from the **“Access keys”** option in the storage account menu on the left side.
+     ![Picture 4](https://user-images.githubusercontent.com/104025201/237000775-c1d3fd02-3812-4951-bfe8-17fed9b5e41e.png)
 
 
 ### Integration Steps:
