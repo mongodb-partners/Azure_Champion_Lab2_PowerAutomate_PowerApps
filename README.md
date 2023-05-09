@@ -31,14 +31,15 @@ In this Lab you will explore : -
 ### Prerequisites:
 
   1. Spin up a MongoDB Atlas cluster 
-      a. Configure Atlas Environment
-      Register for a new Atlas Account [here](https://www.mongodb.com/docs/atlas/tutorial/create-atlas-account/#register-a-new-service-account). Follow steps from 1 and 2 (Create an Atlas account, Deploy a Free cluster) to set up the Atlas environment. In Step 2 (Deploy a Free cluster), Give the cluster name as **“Sandbox”.**
+ 
+      a. Configure Atlas Environment  
+      Register for a new Atlas Account [here](https://www.mongodb.com/docs/atlas/tutorial/create-atlas-account/#register-a-new-service-account). Follow steps from 1 and 2 (Create an Atlas account, Deploy a Free cluster) to set up the Atlas environment. In Step 2 (Deploy a Free cluster), Give the cluster name as **“Sandbox”.**  
       b. Enable the Data API in Atlas [here](https://www.mongodb.com/docs/atlas/api/data-api/#1.-enable-the-data-api).  
-     Under Data API Access dropdown, choose **Read And Write** option.  
-     Save the **URL Endpoint** which will be used at a later stage to configure **MongoDBDataAPI.**
-      c. Create a Data API Key [here](https://www.mongodb.com/docs/atlas/api/data-api/#2.-create-a-data-api-key)  
-  **Note: Save it as this is the only time you can retrieve the full private key.**
-  2. Create a Blob Storage
+     Under Data API Access dropdown, choose **Read And Write** option.   
+     Save the **URL Endpoint** which will be used at a later stage to configure **MongoDBDataAPI.**  
+      c. Create a Data API Key [here](https://www.mongodb.com/docs/atlas/api/data-api/#2.-create-a-data-api-key)   
+  **Note: Save it as this is the only time you can retrieve the full private key.**. 
+  2. Create a Blob Storage  
      a. Login to your Azure account. If you don't have an Azure account, subscribe to the free account using the link [here](https://azure.microsoft.com/en-in/free/).  
      b. Create a blob storage account. You can follow the steps provided in [Microsoft Link](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).   
      c. Create 1 container called **"documents"**. Select **Public access level** as **“Container (anonymous read access for containers and blobs)”**.
