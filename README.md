@@ -110,11 +110,12 @@ Or you can also create a free Power Apps account (Developer Plan) using a person
 <img width="452" alt="Picture 15" src="https://user-images.githubusercontent.com/104025201/236997994-9f5eac18-8748-449b-aae9-abcc929813a6.png">
 
   Once the connection is created, provide values as below:
-  MongoDB Cluster Name:     “Sandbox”
+```
+  MongoDB Cluster Name: “Sandbox”
   MongoDB Database Name: “XYZBank”
   MongoDB Collection Name: “onboarding”
   Document to be inserted:	
-```
+
   {
   "firstname": <From previous AI step - First name>,
   "lastname": <From previous AI step - Last name>,
