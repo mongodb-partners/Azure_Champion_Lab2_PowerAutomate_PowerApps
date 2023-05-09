@@ -18,14 +18,14 @@ MongoDB Atlas is easily integrated with Power Automate using a Premium connector
 
 ### Objectives:
 In this Lab you will explore : -  
-  1. Create a Power Automate workflow 
-      a. Scans a document uploaded in blob storage using AI 
-      b. AI extracted information is inserted as a document to MongoDB collection 
-      c. Sends an email notification with the extracted information 
+  1. Create a Power Automate workflow   
+      a. Scans a document uploaded in blob storage using AI  
+      b. AI extracted information is inserted as a document to MongoDB collection  
+      c. Sends an email notification with the extracted information  
  
 #### OPTIONAL: 
-  2. Create a single page Power Apps application 
-      a. Takes user inputs  
+  2. Create a single page Power Apps application  
+      a. Takes user inputs    
       b. Inserts the input as a document in MongoDB collection 
 
 ### Prerequisites:
@@ -38,15 +38,17 @@ In this Lab you will explore : -
      Under Data API Access dropdown, choose **Read And Write** option.   
      Save the **URL Endpoint** which will be used at a later stage to configure **MongoDBDataAPI.**  
       c. Create a Data API Key [here](https://www.mongodb.com/docs/atlas/api/data-api/#2.-create-a-data-api-key)   
-  **Note: Save it as this is the only time you can retrieve the full private key.**. 
+  **Note: Save it as this is the only time you can retrieve the full private key.** 
   2. Create a Blob Storage  
      a. Login to your Azure account. If you don't have an Azure account, subscribe to the free account using the link [here](https://azure.microsoft.com/en-in/free/).  
      b. Create a blob storage account. You can follow the steps provided in [Microsoft Link](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).   
      c. Create 1 container called **"documents"**. Select **Public access level** as **“Container (anonymous read access for containers and blobs)”**.
-<img width="302" alt="Picture 3" src="https://user-images.githubusercontent.com/104025201/236998644-eec061b9-4af4-4e58-bfbd-e26d438bb582.png">
-     d. Note the **Storage account name** and also Save one of the **Access keys** from the **“Access keys”** option in the storage account menu on the left side.
+     
+<img width="302" alt="Picture 3" src="https://user-images.githubusercontent.com/104025201/236998644-eec061b9-4af4-4e58-bfbd-e26d438bb582.png">.   
+     d. Note the **Storage account name** and also Save one of the **Access keys** from the **“Access keys”** option in the storage account menu on the left side.  
 
-![Picture 4](https://user-images.githubusercontent.com/104025201/236997679-15d686e7-2689-4593-b4bc-f4e834def433.png)
+![Picture 4](https://user-images.githubusercontent.com/104025201/237000028-25274bc0-339c-4ff8-8276-770a77eb50fa.png)
+
 
 ### Integration Steps:
 #### A. Create a Power Automate workflow which scans the document uploaded and emails the results
