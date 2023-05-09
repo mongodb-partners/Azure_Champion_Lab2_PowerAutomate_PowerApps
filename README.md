@@ -110,12 +110,12 @@ Or you can also create a free Power Apps account (Developer Plan) using a person
 <img width="452" alt="Picture 15" src="https://user-images.githubusercontent.com/104025201/236997994-9f5eac18-8748-449b-aae9-abcc929813a6.png">
 
   Once the connection is created, provide values as below:
-```
-  MongoDB Cluster Name: “Sandbox”
-  MongoDB Database Name: “XYZBank”
-  MongoDB Collection Name: “onboarding”
-  Document to be inserted:	
 
+  MongoDB Cluster Name: “Sandbox”  
+  MongoDB Database Name: “XYZBank”  
+  MongoDB Collection Name: “onboarding”  
+  Document to be inserted:	
+```
   {
   "firstname": <From previous AI step - First name>,
   "lastname": <From previous AI step - Last name>,
@@ -134,7 +134,7 @@ After entering the details the form should look as below:
 <img width="425" alt="Picture 17" src="https://user-images.githubusercontent.com/104025201/236998054-764f7873-c60c-4a12-8d03-5b920b928f07.png">
 
 
-**e. Step 4 - Insert the extracted details into MongoDB collection** 
+**e. Step 5 - Send an email notification** 
   * Add a new step to send an email notification. If you have a **Outlook365 account**, you can use the below steps, else use **work Gmail account** or create an **Outlook.com** account and use that to send a mail. *Note : this will not work with personal gmail accounts.*
 
   * Select **Office 365 Outlook** operation and **“Send an email (v2)"** action.
@@ -157,7 +157,7 @@ Hi,
 
   Country/Region: 	<From previous AI step -Country/ Region>,
 
-  Date of birth: 		<From previous AI step - Date of birth>
+  Date of birth:      <From previous AI step - Date of birth>
 
 Please revert if the details are inaccurate, else we have updated our records with your information.
 Have a nice day!
@@ -171,12 +171,11 @@ Document Analyser
 
 Save the flow using the Save option at the bottom or the top right corner. Once saved, you will see a message as below on the top left corner.
 
+![Picture 20](https://user-images.githubusercontent.com/104025201/236998226-ccdf49dc-8f75-4e6d-9f3d-a35f96426bde.png)
 
 ##### Test the Power Automate Flow
 
 1. Download the specimen passport from wikipedia, link [here](https://drive.google.com/file/d/1nsvZS8xpOTKS0Neml9nC7oEVQ4AinrpW/view?usp=share_link).
-
-![Picture 20](https://user-images.githubusercontent.com/104025201/236998226-ccdf49dc-8f75-4e6d-9f3d-a35f96426bde.png)
 
 2. Test the flow by clicking the **“Test”** option on the top right corner of the Power Automate flow.
   * Select option Manually and click the **“Test”** button.
@@ -187,7 +186,7 @@ You will see below, the message hinting to start the trigger action.
 
 <img width="262" alt="Picture 22" src="https://user-images.githubusercontent.com/104025201/236998275-6b166193-35da-4d2a-a9ea-ed8c33fca8f8.png">
 
-  * Go to the blob storage account and Upload the downloaded Passport file. Select the “Upload” option in the documents container.
+  * Go to the blob storage account and Upload the downloaded Passport file. Select the **“Upload”** option in the documents container.
 
 ![Picture 23](https://user-images.githubusercontent.com/104025201/236998295-abd5176f-d7f7-4e85-a0ae-5663a6043a8e.png)
 
