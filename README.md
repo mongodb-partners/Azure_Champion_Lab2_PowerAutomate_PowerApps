@@ -206,15 +206,178 @@ Select **“browse files”** and select the downloaded **specimen passport** fi
 
 
 **Congratulations ! You have successfully created a Power automate flow that scans the document uploaded using AI and sends a mail and inserts a record with the extracted details to MongoDB Atlas.**
+_____________________________________________________________________________________
+## OPTIONAL
+### Create a single page Power Apps application 
 
+#### Create the MongoDB custom connector
 
+1. Sign in to the Power Apps account and select “...More” on the left tab and click on “Discover all”.
 
+img1
 
+2. Select **“Custom connectors”** from the Data tile on the **“Discover all”** page
 
+img2
 
+3. In the Custom connectors page, select the **“New custom connector”** on the top right and select **“Import from Github”**. To select the certified MongoDB custom connector, select *Connector Type = “Certified”, Branch = “master” and Connector = “MongoDB” and select the “Continue”* button.
 
-   
+img3
 
+img4
 
+4. Change the default MongoDB connector name on the top to a name of your choice. **“MongoDBNewConnector”** is used in the example below. 
 
-  
+img5
+
+5. Toggle the **“Swagger Editor”** button which will show the swagger code for the connector. Add the below schema to the **“insertOne”** API definition between **lines 66** (type: object)  and **67** (description: An EJSON document to insert into the collection.) defining the structure of the document that will be inserted in the application.
+
+```
+                properties:
+                  _id:
+                    type: string
+                    description: _id
+                    title: PassportNumber
+                  name:
+                    type: string
+                    description: name
+                    title: firstname
+                  passportNumber:
+                    type: string
+                    description: passportNumber
+                    title: passportNumber
+```
+Be careful about the alignment , the final swagger should like as below:
+
+img6
+
+6. Select the **“Create Connector”** option on the top to save the changes to the swagger file.
+
+img7
+
+7. Wait till the changes are saved and you see the message below on the top.
+*“Custom connector has been successfully updated.”*
+
+8. Go to **“Test”** Tab → **New Connection**. 
+
+img8
+
+9. Enter the private API Key created in **“C. Create a Data API Key”** step in [Prerequisites - 1](link) and click **“Create”** to create the new API key authentication based connection. Enter the URL endpoint of the Data API set in **“B. Enable the Data API in Atlas”** step in [Prerequisites - 1](link).
+On clicking **“Create”**, it will add a connection for MongoDB Atlas under the **“Connections”** tab.
+
+img9
+
+Note : You can always edit/ test the connector from the **“Custom connectors”** only, even though the connection shows up under **“Connections”** also.  
+
+You can go to the **“Test”** and test the **“Insert Document”** by passing the DATASOURCE as Sandbox and rest you can give any values and click **“Test Operation”**.
+
+#### Create a Canvas App and add MongoDB Data source
+
+1. Go to Apps in the left panel of the Power Apps Portal. 
+Create a new **Canvas** app. Give a name (**MongoDBApplication** in the example), 
+Choose Tablet Mode and click **“Create”**.
+
+Skip any suggestion box that appears.
+
+img10
+
+img11
+
+2. Add MongoDB connector as a data source.
+Click on the **Data** icon on the left panel of the Canvas app menu. 
+
+Select **“+ Add data”**.
+Type **MongoDB** in the **“Select a data source”** text box and you will see the connection you created with the Custom Connector. Click on the connector (**MongoDBNewConnector** in the example).
+
+img12
+
+Once added it will show as a Data source under the Data tab.
+
+img13
+
+#### Create the Form
+
+In this section you will create a form as shown below.
+
+img14
+
+* **Heading:**
+    * To create the Heading, go to the **“Tree View”** and Select a rectangle using the **“+Insert”** option on the top menu.
+
+img15
+
+Extend the rectangle to cover the entire top and change the color of the rectangle to black by selecting it from the Color option under **“Properties”**
+
+img16
+
+Add the title as **“New Onboarding Form”** by adding a new **“Text Label”** from the Insert menu. Adjust the **font size** to 16, **position of the label** to the middle of the header, **color** of the font as white by selecting the **Color** from within Properties on the right menu and making the font **Bold** (Ctrl/ Cmd + B).
+
+img17
+
+Add the MongoDB label on the left side of the header. Download the logo given [here](https://drive.google.com/file/d/18RHNV0rwUn_Jshi2SxtbSuqQd5mjNUiU/view?usp=share_link).
+
+Add this logo by selecting  the Insert menu -> Media -> Image.
+Adjust the position of the image and add the downloaded logo by selecting **“Add an image file”** from the **Properties** menu on the right.
+
+img18
+
+After adding the image, the header will complete as shown below.
+
+img19
+
+* **Labels:**
+
+    * To create the labels (Name and Passport) on the left:
+        * Click on the Insert menu → **“Text Label”** and key in the name. Repeat for both the 2 Labels.
+
+* **Text boxes:**
+    
+    * To create the Input text boxes on the right:
+        * Click on Insert → Text → Text Input. Repeat for both the 2 textboxes.
+        * Click on the first Text Input box, go to **Properties** and add **“Name as in passport”** in the Hint text property. 
+
+Delete the **“Text input”** **default** in **Properties** as shown below.
+
+img20
+
+Similarly add any Hint text to the Passport text box also.
+
+Rename the Text inputs to **name**& for name, **passport** for the Passport to easily reference them in the Insert document formula.
+
+After renaming all five text inputs, it will look as below:
+
+img21
+
+* **Submit button:**
+
+    * Click on Insert → Button. Edit the text to **“Submit”**. 
+        * Click on the Button created→ choose **OnSelect** Option under **Advanced** → Add the below function:
+```
+MongoDB.InsertDocument("Sandbox","XYZBank","onboarding",{_id:passport.Text,name:Upper(name.Text),passportNumber:passport.Text});
+
+Reset(name);Reset(passport);
+```
+img22
+
+#### Test the application
+
+Now that our simple application is ready, let's test it. Click on the play button on the right of the top menu. 
+
+img23
+
+Enter values for each of the 2 inputs and click **Submit**.
+
+img24
+
+It will insert a document with the details entered into the **XYZBank.onboarding** collection.
+
+img25
+
+It will also reset all the values entered and we can enter new values. Click on the cross mark on top right to come out of the testing mode and back to editing the application.
+
+img26
+
+*Note that the Passport number is the “_id” field of the collection, hence it has to be unique every time.*
+
+**Congratulations! You have successfully created a Power Apps single page application which captures details from the user and stores it in MongoDB.**
+
