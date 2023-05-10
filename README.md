@@ -207,6 +207,7 @@ Select **“browse files”** and select the downloaded **specimen passport** fi
 
 **Congratulations ! You have successfully created a Power automate flow that scans the document uploaded using AI and sends a mail and inserts a record with the extracted details to MongoDB Atlas.**
 _____________________________________________________________________________________
+
 ## OPTIONAL
 ### Create a single page Power Apps application 
 
@@ -214,21 +215,23 @@ ________________________________________________________________________________
 
 1. Sign in to the Power Apps account and select “...More” on the left tab and click on “Discover all”.
 
-img1
+<img width="224" alt="Image 1" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/af5aa65f-77c4-4cf5-8295-ba1bda0256ee">
+
 
 2. Select **“Custom connectors”** from the Data tile on the **“Discover all”** page
 
-img2
+<img width="452" alt="Image 2" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/6afda334-e685-49a3-b150-d70546d59629">
+
 
 3. In the Custom connectors page, select the **“New custom connector”** on the top right and select **“Import from Github”**. To select the certified MongoDB custom connector, select *Connector Type = “Certified”, Branch = “master” and Connector = “MongoDB” and select the “Continue”* button.
 
-img3
+<img width="216" alt="Image 3" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/7475bfd7-14e8-43de-b4d0-935c23246825">
 
-img4
+<img width="321" alt="Image 4" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/27c78540-8119-4cb2-9412-08d4a05e7898">
 
 4. Change the default MongoDB connector name on the top to a name of your choice. **“MongoDBNewConnector”** is used in the example below. 
 
-img5
+![Image 5](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/111b1aa7-6db4-471a-92d9-8473c6355d4c)
 
 5. Toggle the **“Swagger Editor”** button which will show the swagger code for the connector. Add the below schema to the **“insertOne”** API definition between **lines 66** (type: object)  and **67** (description: An EJSON document to insert into the collection.) defining the structure of the document that will be inserted in the application.
 
@@ -249,23 +252,23 @@ img5
 ```
 Be careful about the alignment , the final swagger should like as below:
 
-img6
+<img width="452" alt="Image 6" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/6c557116-0fbb-4e69-84ff-7db2a1ce4e58">
 
-6. Select the **“Create Connector”** option on the top to save the changes to the swagger file.
+6. Select the **“Create Connector”** option on the top to save the changes to the swagger file.  
 
-img7
+<img width="452" alt="Image 7" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/c5183da5-a15c-4ee4-8dc2-735ea7967e5d">
 
 7. Wait till the changes are saved and you see the message below on the top.
 *“Custom connector has been successfully updated.”*
 
 8. Go to **“Test”** Tab → **New Connection**. 
 
-img8
+![Image 8](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/ed047ab6-460f-4977-9b70-e7970f01cbff)
 
 9. Enter the private API Key created in **“C. Create a Data API Key”** step in [Prerequisites - 1](link) and click **“Create”** to create the new API key authentication based connection. Enter the URL endpoint of the Data API set in **“B. Enable the Data API in Atlas”** step in [Prerequisites - 1](link).
 On clicking **“Create”**, it will add a connection for MongoDB Atlas under the **“Connections”** tab.
 
-img9
+<img width="406" alt="Image 9" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/fa18a8ae-2200-4cdc-93cc-7e961ed584b3">
 
 Note : You can always edit/ test the connector from the **“Custom connectors”** only, even though the connection shows up under **“Connections”** also.  
 
@@ -279,9 +282,11 @@ Choose Tablet Mode and click **“Create”**.
 
 Skip any suggestion box that appears.
 
-img10
+![Image 10](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/8b307ef2-50ea-4b8d-8a43-efa96a4e018a)
 
-img11
+
+![Image 11](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/1385d669-4d51-429c-9bbb-00c85168d7df)
+
 
 2. Add MongoDB connector as a data source.
 Click on the **Data** icon on the left panel of the Canvas app menu. 
@@ -289,41 +294,46 @@ Click on the **Data** icon on the left panel of the Canvas app menu.
 Select **“+ Add data”**.
 Type **MongoDB** in the **“Select a data source”** text box and you will see the connection you created with the Custom Connector. Click on the connector (**MongoDBNewConnector** in the example).
 
-img12
+<img width="259" alt="Image 12" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/91502857-2959-4948-a5a5-0aab8073924d">
+
 
 Once added it will show as a Data source under the Data tab.
 
-img13
+<img width="223" alt="Image 13" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/05d72451-3456-42cc-b164-a3f51d715729">
+
 
 #### Create the Form
 
 In this section you will create a form as shown below.
 
-img14
+![Image 14](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/725853b0-6d75-4f2f-b2fa-789fc4bd6432)
+
 
 * **Heading:**
     * To create the Heading, go to the **“Tree View”** and Select a rectangle using the **“+Insert”** option on the top menu.
 
-img15
+![Image 15](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/6e2b19e8-4eda-4315-854b-a184bc06e6a5)
 
 Extend the rectangle to cover the entire top and change the color of the rectangle to black by selecting it from the Color option under **“Properties”**
 
-img16
+![Image 16](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/d345b68d-1d66-491d-825c-338b9574f807)
+
 
 Add the title as **“New Onboarding Form”** by adding a new **“Text Label”** from the Insert menu. Adjust the **font size** to 16, **position of the label** to the middle of the header, **color** of the font as white by selecting the **Color** from within Properties on the right menu and making the font **Bold** (Ctrl/ Cmd + B).
 
-img17
+![Image 17](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/516d3ddb-02b0-4c29-87ec-192786b9bc96)
+
 
 Add the MongoDB label on the left side of the header. Download the logo given [here](https://drive.google.com/file/d/18RHNV0rwUn_Jshi2SxtbSuqQd5mjNUiU/view?usp=share_link).
 
 Add this logo by selecting  the Insert menu -> Media -> Image.
-Adjust the position of the image and add the downloaded logo by selecting **“Add an image file”** from the **Properties** menu on the right.
+Adjust the position of the image and add the downloaded logo by selecting **“Add an image file”** from the **Properties** menu on the right.  
 
-img18
+![Image 18](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/56f56b48-4ece-4934-a18c-20579f5043f3)
 
 After adding the image, the header will complete as shown below.
 
-img19
+![Image 19](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/cdd35aaa-a07d-4c62-8238-a4fac835035c)
 
 * **Labels:**
 
@@ -338,7 +348,8 @@ img19
 
 Delete the **“Text input”** **default** in **Properties** as shown below.
 
-img20
+![Image 20](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/84c07a09-1082-4268-8ac5-df7b7e24521a)
+
 
 Similarly add any Hint text to the Passport text box also.
 
@@ -346,7 +357,8 @@ Rename the Text inputs to **name**& for name, **passport** for the Passport to e
 
 After renaming all five text inputs, it will look as below:
 
-img21
+<img width="326" alt="Image 21" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/c94283ad-8c1c-4e4c-adda-0248cecfc18a">
+
 
 * **Submit button:**
 
@@ -357,25 +369,30 @@ MongoDB.InsertDocument("Sandbox","XYZBank","onboarding",{_id:passport.Text,name:
 
 Reset(name);Reset(passport);
 ```
-img22
+
+![Image 22](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/bc1573b8-512d-4060-b1ef-b94fc16234d6)
+
 
 #### Test the application
 
 Now that our simple application is ready, let's test it. Click on the play button on the right of the top menu. 
 
-img23
+![Image 23](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/e5ad0ae7-3893-4c7f-bf19-3d948003482f)
+
 
 Enter values for each of the 2 inputs and click **Submit**.
 
-img24
+![Image 24](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/65dc9ba7-5376-4aaf-a9bc-5a619901a721)
+
 
 It will insert a document with the details entered into the **XYZBank.onboarding** collection.
 
-img25
+![Image 25](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/1d7b1c24-81ea-4475-83c1-7f3660ac401a)
 
 It will also reset all the values entered and we can enter new values. Click on the cross mark on top right to come out of the testing mode and back to editing the application.
 
-img26
+![Image 26](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/7436b168-b868-4808-9d25-bb810b107a76)
+
 
 *Note that the Passport number is the “_id” field of the collection, hence it has to be unique every time.*
 
