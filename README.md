@@ -353,7 +353,7 @@ Delete the **“Text input”** **default** in **Properties** as shown below.
 
 Similarly add any Hint text to the Passport text box also.
 
-Rename the Text inputs to **name**& for name, **passport** for the Passport to easily reference them in the Insert document formula.
+Rename the Text inputs to **name** for name, **passport** for the Passport to easily reference them in the Insert document formula.
 
 After renaming all five text inputs, it will look as below:
 
