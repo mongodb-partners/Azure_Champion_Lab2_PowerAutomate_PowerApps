@@ -213,7 +213,7 @@ ________________________________________________________________________________
 
 #### Create the MongoDB custom connector
 
-1. Sign in to the Power Apps account and select “...More” on the left tab and click on “Discover all”.
+1. Sign in to the Power Apps account and select **“...More”** on the left tab and click on **“Discover all”**.
 
 <img width="224" alt="Image 1" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/af5aa65f-77c4-4cf5-8295-ba1bda0256ee">
 
@@ -233,7 +233,7 @@ ________________________________________________________________________________
 
 ![Image 5](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/111b1aa7-6db4-471a-92d9-8473c6355d4c)
 
-5. Toggle the **“Swagger Editor”** button which will show the swagger code for the connector. Add the below schema to the **“insertOne”** API definition between **lines 66** (type: object)  and **67** (description: An EJSON document to insert into the collection.) defining the structure of the document that will be inserted in the application.
+5. Toggle the **“Swagger Editor”** button which will show the swagger code for the connector. Add the below schema to the **“insertOne”** API definition between **lines 66** (*type: object*)  and **67** (*description: An EJSON document to insert into the collection.*) defining the structure of the document that will be inserted in the application.
 
 ```
                 properties:
@@ -258,19 +258,19 @@ Be careful about the alignment , the final swagger should like as below:
 
 <img width="452" alt="Image 7" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/c5183da5-a15c-4ee4-8dc2-735ea7967e5d">
 
-7. Wait till the changes are saved and you see the message below on the top.
+7. Wait till the changes are saved and you see the message below on the top.  
 *“Custom connector has been successfully updated.”*
 
 8. Go to **“Test”** Tab → **New Connection**. 
 
 ![Image 8](https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/ed047ab6-460f-4977-9b70-e7970f01cbff)
 
-9. Enter the private API Key created in **“C. Create a Data API Key”** step in [Prerequisites - 1](link) and click **“Create”** to create the new API key authentication based connection. Enter the URL endpoint of the Data API set in **“B. Enable the Data API in Atlas”** step in [Prerequisites - 1](link).
+9. Enter the private API Key created in **“C. Create a Data API Key”** step in **Prerequisites - 1.c** and click **“Create”** to create the new API key authentication based connection. Enter the URL endpoint of the Data API set in **“B. Enable the Data API in Atlas”** step in **Prerequisites - 1.b**.  
 On clicking **“Create”**, it will add a connection for MongoDB Atlas under the **“Connections”** tab.
 
 <img width="406" alt="Image 9" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/fa18a8ae-2200-4cdc-93cc-7e961ed584b3">
 
-Note : You can always edit/ test the connector from the **“Custom connectors”** only, even though the connection shows up under **“Connections”** also.  
+*Note : You can always edit/ test the connector from the **“Custom connectors”** only, even though the connection shows up under **“Connections”** also.*   
 
 You can go to the **“Test”** and test the **“Insert Document”** by passing the DATASOURCE as Sandbox and rest you can give any values and click **“Test Operation”**.
 
