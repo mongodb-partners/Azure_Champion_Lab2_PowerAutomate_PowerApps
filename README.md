@@ -3,11 +3,12 @@
 Digitalization is putting pressure on organizations to develop apps, features and workflows faster. And the fact is that there is a skill shortage to meet these demands. Thus, citizen developers are using Low-code , No Code solutions to meet the TTM demands. [Power Platform](https://powerplatform.microsoft.com/en-us/) offers a suite of tools that can enable developers to build rich applications and workflows without having to master any coding skills. To build these distributed applications and workflows faster, you need a robust and flexible Data platform that provides the necessary services and tools at the performance and scale users demand. [MongoDB Atlas](https://www.mongodb.com/atlas) is the industry’s first unified developer data platform that allows you to accelerate and simplify how you build with data using the Power Platform for modern applications.
 
 ## MongoDB Atlas and Power Apps / Power Automate integration:
-In this Lab, we will create a single page application using Power Apps to capture some details from the user and save it in MongoDB. 
-We will also create a Power Automate flow that scans a document uploaded to a blob storage using AI and saves the extracted details into MongoDB. 
+In this Lab, we will create Power Automate flow that scans a document uploaded to a blob storage using AI and saves the extracted details into MongoDB. 
+Optionally, also create a single page application using Power Apps to capture some details from the user and save it in MongoDB. 
+
 
 ### Power Apps 
-MongoDB Atlas is easily integrated with Power Apps using a certified custom connector. You can add the certified MongoDB custom connector by using the “Import from GitHub'' option and the “master” branch of the “Production” Github repo. Select and Test from the available MongoDB Data APIs that you would use in your Power Apps solution.
+MongoDB Atlas is easily integrated with Power Apps using a certified custom connector. You can add the certified MongoDB custom connector by using the “Import from GitHub” option and the “master” branch of the “Production” Github repo. Select and Test from the available MongoDB Data APIs that you would use in your Power Apps solution.
 
 ![Picture 1](https://user-images.githubusercontent.com/104025201/236997363-2b3c8718-06ed-4dc6-84bf-86f41256adeb.png)
 
@@ -33,13 +34,23 @@ In this Lab you will explore : -
   1. Spin up a MongoDB Atlas cluster 
  
       a. Configure Atlas Environment  
-      Register for a new Atlas Account [here](https://www.mongodb.com/docs/atlas/tutorial/create-atlas-account/#register-a-new-service-account). Follow steps from 1 and 2 (Create an Atlas account, Deploy a Free cluster) to set up the Atlas environment. In Step 2 (Deploy a Free cluster), Give the cluster name as **“Sandbox”.**  
-      b. Enable the Data API in Atlas [here](https://www.mongodb.com/docs/atlas/api/data-api/#1.-enable-the-data-api).  
-     Under Data API Access dropdown, choose **Read And Write** option.   
-     Save the **URL Endpoint** which will be used at a later stage to configure **MongoDBDataAPI.**  
-      c. Create a Data API Key [here](https://www.mongodb.com/docs/atlas/api/data-api/#2.-create-a-data-api-key)   
-  **Note: Save it as this is the only time you can retrieve the full private key.** 
-  2. Create a Blob Storage  
+      Register for a new Atlas Account [here](https://www.mongodb.com/docs/atlas/tutorial/create-atlas-account/#register-a-new-service-account). Follow steps from 1 and 2 (Create an Atlas account, Deploy a Free cluster) to set up the Atlas environment. In Step 2 (Deploy a Free cluster), Give the cluster name as **“Sandbox”.**  This is covered in detail in Lab1.
+      b. Enable the Data API in Atlas
+         i. Go to "Data API" tile on the left side menu.
+         ii. Select the **Data Source** on which the API needs to be enabled - It will be the **“Sandbox”.** cluster in this case
+         iii. Go to **"Advanced Configuration"** if you want to change the Cloud Provider and region for the local deployment. Note that you will have only limited regions to select from.
+         iv. Click on **"Enable Data Access from the Data API"** button
+     <img width="603" alt="DataAPI Enablement" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/ce7cd127-6ba2-4a56-8b8a-99ac21a62f9d">
+     
+         v. On the Pop-up window "Test Out Your Data API" , give a name to your key in the **"Name your key"** text box. Click **"Generate API Key"** button.
+         vi. **Save the generated API key as this is the only time you can retrieve the full private key.** Click the **"Close"** button to close the Pop-up window.
+     <img width="536" alt="GenerateAPiKey" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/9d7f67dc-1938-49a6-a029-8ee9964893bb">
+     
+         vii.Under "Data API Access" dropdown, ensure **Read And Write** option is selected against **Sandbox** cluster.   
+         viii. Copy and Save the **URL Endpoint** which will be used at a later stage to configure **MongoDBDataAPI.** along with the API Key saved in Step vi above. 
+     <img width="1547" alt="DataAPIFInal" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/b8bcb613-951d-458d-8bb9-b878f345d228">
+     
+  3. Create a Blob Storage  
      a. Login to your Azure account. If you don't have an Azure account, subscribe to the free account using the link [here](https://azure.microsoft.com/en-in/free/).  
      b. Create a blob storage account. You can follow the steps provided in [Microsoft Link](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).   
      c. Create 1 container called **"documents"**. Select **Public access level** as **“Container (anonymous read access for containers and blobs)”**.  
@@ -54,12 +65,13 @@ In this Lab you will explore : -
 
 ##### Create the Power Automate Flow
   1. SignIn to Power Apps/Power Automate Environment
-For the Labs, we will provide an exclusive environment for each user .
-Open a new tab in Incognito or Private browsing, create a new browser profile using the credentials provided by the instructor, Open - “www.powerapps.com” and SignIn to the logged in account. *Microsoft default environments have many policies that block access and will not work for these Labs.* 
+  i. In your browser open **"https://powerapps.microsoft.com/"** and click on **"Sign in"** in the top right corner of the PowerApps portal.
+  ii. Sign In using your microsoft work email ID. Microsoft provides you with a default Power Apps environment.
+<img width="1521" alt="PowerAppsSignIn" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/4f13b548-8aac-422e-a593-f70808721e97">
+  iii. Go To Power Automate from the Power Apps portal by clicking on the **dotted square box** on the extreme top left. Select **"Power Automate"** from the Apps listed.
+<img width="1359" alt="PowerAutofromPowerApps" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/49ec5313-8809-4b52-828c-f91a0f2c3a74">
 
-Or you can also create a free Power Apps account (Developer Plan) using a personal email id. The [landing page for the plan](https://powerapps.microsoft.com/en-us/developerplan/) and the page with details on [how to Sign up](https://learn.microsoft.com/en-us/power-apps/maker/developer-plan) can be of help to get started. For a licensed version, refer to the link [here](https://powerapps.microsoft.com/en-us/pricing/).  
-
-  2. Create a New Automated Cloud Flow. Select **My Flows -. +New flow -> Automated Cloud flow**. The flow consists of 5 actions.  
+  3. Create a New Automated Cloud Flow. Select **My Flows -. +New flow -> Automated Cloud flow**. The flow consists of 5 actions.  
 
 <img width="356" alt="Picture 5" src="https://user-images.githubusercontent.com/104025201/236997731-72e11826-811f-4a40-8b18-59ac381018a8.png">
 
