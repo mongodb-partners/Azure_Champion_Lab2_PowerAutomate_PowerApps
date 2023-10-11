@@ -80,7 +80,7 @@ In this Lab you will explore : -
   
 <img width="1521" alt="PowerAppsSignIn" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/4f13b548-8aac-422e-a593-f70808721e97">
 
-  iii. Go To Power Automate from the Power Apps portal by clicking on the **dotted square box** on the extreme top left. Select **"Power Automate"** from the Apps listed. 
+  2. Go To Power Automate from the Power Apps portal by clicking on the **dotted square box** on the extreme top left. Select **"Power Automate"** from the Apps listed. 
   
 <img width="1359" alt="PowerAutofromPowerApps" src="https://github.com/mongodb-partners/Azure_Champion_Lab2_PowerAutomate_PowerApps/assets/104025201/49ec5313-8809-4b52-828c-f91a0f2c3a74">
 
